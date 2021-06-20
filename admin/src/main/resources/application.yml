@@ -4,11 +4,40 @@ server:
 spring:
   application:
     name: admin-boot
-
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            api-rest:
+              - uri: http://localhost:8081
+                metadata:
+                  management.context-path: /actuator
+  boot:
+    admin:
+      notify:
+        mail:
+          to: therogerdeas@hotmail
+          enabled: false
+          from: "Service Monitoring <noreply@localhost>"
+      ui:
+        title: 'Microvios'
+        external-views:
+          - label: "🐼"
+            url: http://codecentric.de
+            order: 2000
+  security:
+    user:
+      name: admin
+      password: admin
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
+    register-with-eureka: false
+    enabled: false
   instance:
     hostname: localhost
+
+
+
