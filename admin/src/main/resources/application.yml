@@ -17,7 +17,7 @@ spring:
     admin:
       notify:
         mail:
-          to: therogerdeas@hotmail
+          to: 
           enabled: false
           from: "Service Monitoring <noreply@localhost>"
       ui:
